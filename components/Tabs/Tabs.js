@@ -5,10 +5,10 @@ class TabLink {
 
      this.tabNumber = this.tabElement.dataset.tab;
 
-     this.content = document.querySelectorAll(`div.card[data-tab=${this.tabNumber}]`)
+     this.content = document.querySelectorAll(`div.card[data-tab="${this.tabNumber}"]`)
       
       this.tabElement.addEventListener('click', (event) => {
-        console.log('This is in the Class', this.tabElement )
+        this.content.classList.toggle("card")
       })
     }
   }
@@ -16,7 +16,7 @@ class TabLink {
 const tabs = document.querySelectorAll('.tab');
       tabs.forEach( (tab) => {
         return new TabLink(tab)
-      
+      })  
   
 
     // Get the `data-tab` value from this.tabElement and store it here
