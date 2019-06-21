@@ -1,8 +1,24 @@
 class TabLink {
   constructor(tabElement){
     // assign this.tabElement to the tabElement DOM reference
-    // this.tabElement;
-    
+     this.tabElement = tabElement
+
+     this.tabNumber = this.tabElement.dataset.tab;
+
+     this.content = document.querySelectorAll(`div.card[data-tab="${this.tabNumber}"]`)
+      
+      this.tabElement.addEventListener('click', (event) => {
+        this.content.classList.toggle("card")
+      })
+    }
+  }
+
+const tabs = document.querySelectorAll('.tab');
+      tabs.forEach( (tab) => {
+        return new TabLink(tab)
+      })  
+  
+
     // Get the `data-tab` value from this.tabElement and store it here
     // this.tabData = ; 
     
@@ -67,6 +83,5 @@ class TabCard {
 - With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList
 
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
-
-*/
 let tabs = document.querySelectorAll();
+*/
